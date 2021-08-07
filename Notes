@@ -1,0 +1,89 @@
+//LESSION 1 // 
+
+1. WebGL
+ JS api, result can be drawn in <canvas>, Uses the GPU
+ Can be used for 2D and 3D, CPU places the vertices and GRU connects and draws on them
+
+ All these instructions to colorize and position are written in "Shaders". 
+
+Native webGl is hard so thats why ThreeJs is ThreeJs
+
+2. ThreeJs
+  it is a JS library. Licensed by MIT. It simplify the "Shaders" process. It is used to interact with webGL. 
+ 
+3. To start we need minimum 4 classes 
+  i. A scene that will contain objects 
+  ii. Some objects
+  iii. A camera 
+  iv. A renderer
+
+4. A SCENE 
+ like a container , put objects, models, lights, etc, And we ask threejs to render that scene
+
+   ``` 
+   const scene = new THREE.Scene();
+   ```
+5. Objects 
+ Primitive Geometries, imported Models, Particles, Lights, Etc
+
+ We need to create a Mesh (combination of Geometry-'shape' and material= 'looks')
+ To make a red cube we use BoxGeometry and MeshBasicMaterial
+
+6. Camera 
+ Not visible, Serves as a point of view , Can have multiple switch between them, 
+
+ We are going to use Perspective Camera 
+
+```
+ const camera = new THREE.PerspectiveCamera(...)
+ ```
+
+ camera has 3 parameters,
+  i. Degree 75degree
+  ii. Field of View (Aspect Ratio)
+
+7. Renderer
+ render the scene from camer apoint of view, result drawn on canvas, A canvas is a HTML element in which you can draw stuffs
+ ThreeJs use WebGl to draw render inside canvas
+
+8. Three.js with a <script> limitations
+ Doesnt includes some of the files 
+ We need to run a server to emulate a website for security reasons
+
+9. BUNDLER
+ -A tool in which you send JS, CSS, TS, HTML, SASS, etc
+ -It applies potential modifications and output a web friendly "BUNDLE"
+ -Can do more like local servers, manage dependencies, improve compatibility, 
+ add module support, optimize files, deploy, etc.
+
+10. WEBPACK
+ - webpack is an open-source JavaScript module bundler. It is made primarily for JavaScript, but it can transform 
+  front-end assets such as HTML, CSS, and images if the corresponding loaders are included. webpack takes modules
+  with dependencies and generates static assets representing those modules.
+
+  #Running Resources 
+    i.   Navigate to required folder 
+    ii.  npm install
+    iii. npm run dev
+
+11. Transform Objects 
+ - 4 properties to transform objects 
+   Position , Scale , Rotation , Quaternion
+
+12. ThreeJs has Vector3 mothods to log important data. (see documentations)
+
+13. AxesHelper 
+    Help in positioning by displaying colored line for each axis
+
+14. In Rotation you have to be careful or it can heppend that axis are locked 
+    and dont work anymore. This is called Gimble lock
+
+15. In rotation the order of X Y and Z rotation is important. 
+    which can be a cause of Gimble Lock. To fix that we ca user reorder method. 
+
+    eg. resh.rotation.reorder("YXZ");
+
+    Here the object will first rotate Y axis followed by X and Z. 
+
+16. Quaternion 
+    It is expressed as rotation but with more mathematical way.  
