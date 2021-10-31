@@ -3,7 +3,7 @@ import * as THREE from "three";
 
 console.log(THREE);
 
-// Scene
+// Creating scene in three.js
 const scene = new THREE.Scene();
 
 //Red Cube
